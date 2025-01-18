@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+.container div {
+  color: red;
+}
+
+.container p {
+  color: green;
+}
+
+.container div p {
+  color: purple; /* This is where the unexpected behavior occurs */
+}
+```
+
+The expected behavior might be that the `<p>` element inside the `.container div` inherits the `color: red` from its parent.  However, due to CSS specificity rules, the `color: purple` style on `.container div p` will override the inherited `color: red`. This is because the selector `.container div p` is more specific than the selector `.container div` (it includes an additional element, making it more precise).
