@@ -1,0 +1,21 @@
+To fix this, we can adjust the CSS to ensure the intended color inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+.container {
+  color: red; /* Apply color to the container directly */
+}
+
+.container p {
+  color: green;
+}
+
+.container div p {
+  color: purple; /* This style is still more specific, but the inheritance is managed differently */
+}
+```
+
+By applying the `color: red;` to the `.container` itself, the `<div>` within the `.container` will properly inherit this color.  Alternatively, you could adjust selector order or even use `!important` (though generally discouraged) to handle these issues, but managing inheritance properly through the specificity of selectors is the preferred approach.
